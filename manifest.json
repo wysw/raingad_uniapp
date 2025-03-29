@@ -1,6 +1,6 @@
 {
     "name" : "Raingad-IM",
-    "appid" : "__UNI__D1E78EC",
+    "appid" : "__UNI__B7E60F8",
     "description" : "聊天小应用",
     "versionName" : "5.5.2",
     "versionCode" : 20250107,
@@ -57,7 +57,7 @@
                 ],
                 "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ],
                 "minSdkVersion" : 21,
-                "targetSdkVersion" : ""
+                "targetSdkVersion" : "33"
             },
             "ios" : {
                 "dSYMs" : false,

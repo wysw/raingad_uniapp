@@ -15,9 +15,10 @@
 			</template>
 		</cu-custom>
 		<view>
+			<meeting v-if="PageCur=='meeting'" v-show="PageCur=='meeting'"></meeting>
 			<message v-show="PageCur=='message'"></message>
 			<contacts v-show="PageCur=='contacts'" :TabCur="TabCur"></contacts>
-			<compass v-show="PageCur=='compass'"></compass>
+			<compass v-show="PageCur=='compass'">e</compass>
 			<mine v-show="PageCur=='mine'"></mine>
 		</view>
 		<view class="cu-bar tabbar bg-white shadow foot">
@@ -62,6 +63,7 @@
 
 <script>
 	import message from '@/pages/message';
+	import meeting from '@/pages/meeting';
 	import contacts from '@/pages/contacts';
 	import compass from '@/pages/compass';
 	import mine from '@/pages/mine';
@@ -78,10 +80,15 @@
 			message,
 			contacts,
 			compass,
-			mine
+			mine,
+			meeting
 		},
 		data() {
 			let navList=[
+				{
+					name:'meeting',
+					title:'会议',
+				},
 				{
 					name:'message',
 					title:'消息',
