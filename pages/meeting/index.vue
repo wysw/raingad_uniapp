@@ -1,8 +1,8 @@
 <template>
-  <view class="container">
+  <view class="container" :style="{ height: webViewHeight }">
     <web-view
-      class="web-view"      
-	  :style="{height: webViewHeight}"
+      class="web-view"
+      :style="{ height: webViewHeight }"
       src="https://live.ofmtvu.com/"
     ></web-view>
   </view>
@@ -21,21 +21,27 @@ export default {
       msgAt: msgStore.msgAt,
       appSetting: userStore.appSetting,
       globalConfig: userStore.globalConfig,
-	  webViewHeight: '790px',
+      webViewHeight: '790px',
     };
   },
   computed: {},
   mounted() {
-	this.setWebViewHeight();
-
+    this.setWebViewHeight();
   },
   created: function () {},
   methods: {
-	setWebViewHeight() {
+    setWebViewHeight() {
       // 获取设备的屏幕高度，动态设置 web-view 高度
       const systemInfo = uni.getSystemInfoSync();
-      this.webViewHeight = systemInfo.windowHeight - 52 + 'px';
-    }
+      let safeAreaInsetsBottom = 0;
+      if (systemInfo.platform === 'ios' || systemInfo.platform === 'android') {
+        safeAreaInsetsBottom = systemInfo.safeAreaInsets
+          ? systemInfo.safeAreaInsets.bottom
+          : 0;
+      }
+      this.webViewHeight = `${systemInfo.windowHeight - 52 - safeAreaInsetsBottom}px`;
+      // 判断是否是手机设备，并获取底部安全区域的高度
+    },
   },
 };
 </script>
