@@ -41,7 +41,7 @@
 					<text class="text-grey text-sm">{{ sex(detail.sex)}}</text>
 				</view>
 			</view>
-			<view class="cu-item" v-if="parseInt(globalConfig.sysInfo.ipregion)">
+			<view class="cu-item" v-if="false && parseInt(globalConfig.sysInfo.ipregion)">
 				<view class="content">
 					<text class="cuIcon-location text-green"></text>
 					<text>IP</text>

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-white">
+		<cu-custom bgColor="bg-white" v-if="PageCur!=='meeting'">
 			<template #backText>
 				<view v-if="PageCur=='message' || PageCur=='contacts'" class="f-20 ml-10 mr-10" @tap="search()">
 					<text class="cuIcon-search" style="margin-left: -10px;"></text>
