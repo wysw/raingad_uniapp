@@ -1,5 +1,5 @@
 {
-    "name" : "Raingad-IM",
+    "name" : "huitong-IM",
     "appid" : "__UNI__B7E60F8",
     "description" : "聊天小应用",
     "versionName" : "5.5.2",
@@ -180,7 +180,7 @@
             "https" : false,
             "port" : ""
         },
-        "title" : "raingad-IM",
+        "title" : "会通-IM",
         "unipush" : {
             "enable" : false
         },
