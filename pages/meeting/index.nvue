@@ -1,12 +1,12 @@
 <template>
   <view
     class="container"
-    :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }"
+    :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }" 
   >
+  
     <web-view
       class="web-view"
-      v-if="webviewHeight"
-      :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }"
+       :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }"
       src="https://live.ofmtvu.com/"
     ></web-view>
   </view>
@@ -14,6 +14,9 @@
 
 <script>
 export default {
+  // v-if="webviewHeight"
+  // <!-- :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }" -->
+  //  <!-- :style="{ height: ` ${webviewHeight}px`, width: `${webviewWidth}px` }" -->
   components: {},
   data() {
     return {
@@ -32,7 +35,7 @@ export default {
       const platform = systemInfo.platform;
 
       const statusBarHeight = systemInfo.statusBarHeight || 0;
-      const navBarHeight = 52; // 如果你有自定义导航栏，填它的高度
+      const navBarHeight = 81; // 如果你有自定义导航栏，填它的高度
       const bottomSafeAreaHeight = systemInfo.safeAreaInsets?.bottom || 0;
 
       // windowHeight 是除去状态栏、导航栏、虚拟按键后的可视高度，推荐基础值
@@ -56,17 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-page {
-  height: calc(100vh - 120upx); /* 全屏高度 */
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 120upx); /* 全屏高度 */
-  .web-view {
-    flex: 1;
-  }
-}
-</style>

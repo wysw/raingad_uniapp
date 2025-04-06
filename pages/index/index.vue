@@ -15,7 +15,8 @@
 			</template>
 		</cu-custom>
 		<view>
-			<meeting v-if="PageCur=='meeting'" v-show="PageCur=='meeting'"></meeting>
+			<meeting v-if="PageCur=='meeting' && isH5" v-show="PageCur=='meeting'"></meeting> 
+			<!-- <sub-nvue v-if="PageCur=='meeting'" v-show="PageCur=='meeting'" id="subnvue-id"></sub-nvue> -->
 			<message v-show="PageCur=='message'"></message>
 			<contacts v-show="PageCur=='contacts'" :TabCur="TabCur"></contacts>
 			<compass v-show="PageCur=='compass'">e</compass>
@@ -98,7 +99,7 @@
 					name:'contacts',
 					title:'通讯录',
 					notice:sysUnread
-				}
+				},
 			]
 			let compass={
 				name:'compass',
@@ -123,7 +124,8 @@
 				TabCur:0,
 				modelName:false,
 				navList:navList,
-				top:10
+				top:10,
+				isH5: true,
 			}
 		},
 		onBackPress(options) {  
@@ -139,6 +141,11 @@
 			}
 		},
 		mounted(){
+			
+			//#ifdef APP-PLUS
+			this.isH5 = false
+			this.openSubNvue(this.PageCur === 'meeting')
+			// #endif
 			// #ifndef MP
 				uni.hideTabBar();
 			// #endif	
@@ -161,7 +168,18 @@
 				this.top = top+height
 			});
 		},
-		methods: {
+		methods: {	
+			openSubNvue(show = true) {
+				const subNvue = uni.getSubNVueById('subnvue-id')
+				if (subNvue) {
+					if(show){
+						subNvue.show()
+					subNvue.postMessage({ type: 'init' })
+					}else{
+						subNvue.hide()
+					}
+				}
+			},
 			closeModel(){
 				this.modelName=false;
 			},
@@ -169,8 +187,17 @@
 				scan.scanQr();
 			},
 			NavChange: function(item) {
+				
 				this.PageCur = item.name
 				this.PageName = item.title
+				//#ifdef APP-PLUS
+					if(item.name === 'meeting'){
+						this.openSubNvue()
+					}else{
+						this.openSubNvue(false)
+					}
+				// #endif
+				
 			},
 			showContacts(){
 				this.TabCur==1 ? this.TabCur=0 :this.TabCur=1
