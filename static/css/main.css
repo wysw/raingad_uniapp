@@ -40,7 +40,7 @@ image {
 /* ==================
           图片
  ==================== */
-
+/* #ifndef APP-NVUE */
 image {
 	max-width: 100%;
 	display: inline-block;
@@ -3910,3 +3910,4 @@ scroll-view.cu-steps .cu-item {
 .lines-white {
 	color: #ffffff;
 }
+/* #endif */

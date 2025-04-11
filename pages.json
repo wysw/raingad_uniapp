@@ -24,7 +24,6 @@
       "path": "pages/message/chat",
       "style": {
         "navigationBarTitleText": "聊天"
-        // "enablePullDownRefresh": true
       }
     },
     {

@@ -6,8 +6,8 @@
 .customicons {
   font-family: "customicons" !important;
 }
-
-.youxi:before {
+/* #ifndef APP-NVUE */
+ .youxi:before {
   content: "\e60e";
 }
 
@@ -18,3 +18,4 @@
 .zhuanfa:before {
   content: "\e610";
 }
+/* #endif */

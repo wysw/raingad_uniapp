@@ -1,3 +1,4 @@
+/* #ifndef APP-NVUE */
 @keyframes cuIcon-spin {
 	0% {
 		-webkit-transform: rotate(0);
@@ -9,6 +10,7 @@
 		transform: rotate(359deg);
 	}
 }
+
 
 .cuIconfont-spin {
 	-webkit-animation: cuIcon-spin 2s infinite linear;
@@ -1224,3 +1226,4 @@
 .cuIcon-btn:before {
 	content: "\e601";
 }
+/* #endif */

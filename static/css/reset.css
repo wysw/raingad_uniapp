@@ -1,3 +1,4 @@
+/* #ifndef APP-NVUE */
 .fr {
     float: right;
 }
@@ -340,3 +341,4 @@
  rich-text{
 	 word-break: break-all;
  }
+ /* #endif */
